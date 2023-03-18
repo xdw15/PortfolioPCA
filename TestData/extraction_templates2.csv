@@ -1,4 +1,0 @@
-code
-Provider='SQLOLEDB.1'; User ID=UsrAppG286;Password=UsrAppG286;Initial Catalog=DBP_CORE;Data Source=PG149DBP01;
-ADODB.Connection
-ADODB.Recordset
