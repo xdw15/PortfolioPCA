@@ -1,0 +1,13 @@
+code
+"querycdr=""select * FROM DBP_TRD.dbo.G089_GE_RF_Reporte where \
+      FecProceso='{date1}'and Cartera='TRD' and ( Compras<>0 or Ventas<>0 or Nominal <>0 or Cupon <>0) ""
+"
+querycdr=querycdr.format(date1=d_rep.strftime(format='%Y-%m-%d'))
+"dsn=(""Provider='SQLOLEDB.1'; User ID=UsrAppG286;Password=UsrAppG286;Initial Catalog=DBP_CORE;Data Source=PG149DBP01;"")"
+conexion=client.Dispatch('ADODB.Connection')
+conexion.Open(dsn)
+recset=client.Dispatch('ADODB.Recordset')
+"recset.Open(querycdr ,conexion)"
+BondData=recset.GetRows()
+"bonds= pd.DataFrame( [ list(i) for i in zip(*BondData)],columns=cols_table)"
+bonds=bonds[cols_use]
